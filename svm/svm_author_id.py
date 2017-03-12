@@ -27,6 +27,11 @@ from sklearn.svm import SVC
 classifier = SVC(kernel='linear')
 
 start_time = time()
+
+# use smaller samples for training data
+features_train = features_train[:len(features_train) / 100]
+labels_train = labels_train[:len(labels_train) / 100]
+
 classifier.fit(features_train, labels_train)
 print 'Training time:', time() - start_time
 
